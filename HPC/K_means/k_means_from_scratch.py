@@ -1,3 +1,4 @@
+import cProfile
 import random
 import math
 
@@ -5,10 +6,9 @@ import math
 
 class KMeans:
 
-    def __init__(self, K=5, max_iters=100, plot_steps=False):
+    def __init__(self, K=5, max_iters=100):
         self.K = K
         self.max_iters = max_iters
-        self.plot_steps = plot_steps
 
         # list of sample indices for each cluster
         self.clusters = [[] for _ in range(self.K)]
@@ -29,18 +29,12 @@ class KMeans:
             # assign samples to closest centroids (create clusters)
             self.clusters = self._create_clusters(self.centroids)
 
-            if self.plot_steps:
-                self.plot()
-
             # calculate new centroids from the clusters
             centroids_old = self.centroids
             self.centroids = self._get_centroids(self.clusters)
 
             if self._is_converged(centroids_old, self.centroids):
                 break
-
-            if self.plot_steps:
-                self.plot()
 
         # classify samples as the index of their clusters
         return self._get_cluster_labels(self.clusters)
@@ -87,24 +81,21 @@ class KMeans:
     def _mean(self, cluster):
         return [sum(col) / len(col) for col in zip(*[self.X[idx] for idx in cluster])]
 
-    def plot(self):
-        # Code for plotting clusters (not included here for brevity)
-        pass
-
 # Testing
 if __name__ == "__main__":
     random.seed(42)
     from sklearn.datasets import make_blobs
 
     X, y = make_blobs(
-        centers=3, n_samples=500, n_features=2, shuffle=True, random_state=40
+        centers=3, n_samples=1000000, n_features=2, shuffle=True, random_state=40
     )
     print(X.shape)
 
     clusters = len(set(y))
     print(clusters)
 
-    k = KMeans(K=clusters, max_iters=150, plot_steps=True)
-    y_pred = k.predict(X)
+    # Create an instance of KMeans
+    k = KMeans(K=clusters, max_iters=150)
 
-    k.plot()
+    # Profiling the predict method of KMeans
+    cProfile.run('k.predict(X)')
