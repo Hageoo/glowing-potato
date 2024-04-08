@@ -1,0 +1,6 @@
+geopandas
+numexpr
+matplotlib
+pandas
+snakeviz
+numpy
