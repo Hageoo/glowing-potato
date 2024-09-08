@@ -1,7 +1,11 @@
 import streamlit as st
-import Database.funciones as fun
+import Database.funciones as fun 
 from streamlit_autorefresh import st_autorefresh
 import time
+
+"""
+This project is a brief example usage of NoSQL 
+"""
 
 # Auto refresh each 10 seconds
 count = st_autorefresh(interval=10000, limit=None, key="chat_refresh_counter")
