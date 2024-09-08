@@ -1,0 +1,75 @@
+@font-face {
+    font-family: 'Adventure Time Logo';
+    src: url('AdventureTimeLogo.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Thunderman';
+    src: url('Thunderman.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+
+
+.css-k7vsyb {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    text-align: center;
+}
+
+.css-k7vsyb h1,
+.css-k7vsyb span {
+    scroll-margin-top: 2rem;
+    font-family: "Adventure Time Logo";
+    color: #e63036;
+    text-shadow:
+        2px 0 #000,   
+        -2px 0 #000,  
+        0 2px #000,   
+        0 -2px #000,  
+        1px 1px #000, 
+        -1px -1px #000,
+        1px -1px #000,  
+        -1px 1px #000;
+    text-align: center; 
+    position: relative; 
+    display: inline-block; 
+    padding-bottom: 7px;
+}
+/*
+.css-k7vsyb h1::after { 
+    content: ""; 
+    background-image: url(https://4.bp.blogspot.com/-4LbY-IQxPUg/URmLI5H6KXI/AAAAAAAAAVk/ymJ13fTpTAQ/s1600/Untitled+10.png);
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    z-index: 9999;
+} */
+
+
+.css-q8sbsg p {
+    word-break: break-word;
+    margin-bottom: 0px;
+    font-size: 21px;
+    font-family: 'Thunderman'; 
+    color: #000
+    
+}
+
+.css-x78sv8 p {
+    word-break: break-word;
+    margin-bottom: 0px;
+    font-family: 'Thunderman';
+    font-size: 17px;
+}
